@@ -1,0 +1,72 @@
+const int rmPwm = 3 ; 
+const int lmPwm= 2;
+const int rm1= 34 ;
+const int rm2= 30 ;
+const int lm1= 38;
+const int lm2 = 24;
+
+
+
+void setup()
+{
+pinMode(pwm,OUTPUT) ;  
+pinMode(pwm1,OUTPUT);
+pinMode(r1,OUTPUT) ;  
+pinMode(l1,OUTPUT) ;
+pinMode(r2,OUTPUT) ;
+pinMode(l2,OUTPUT) ;
+}
+
+void loop()
+{
+//For Straight ,
+analogWrite(pwm,255) ;
+analogWrite(pwm1,255) ;
+digitalWrite(l1,HIGH) ;
+digitalWrite(r1,LOW) ;
+digitalWrite(l2,LOW) ;
+digitalWrite(r2,HIGH) ;
+
+delay(3000);
+
+//For stop
+analogWrite(pwm,255) ;
+analogWrite(pwm1,255) ;
+digitalWrite(l1,HIGH) ;
+digitalWrite(r1,HIGH) ;
+digitalWrite(l2,HIGH) ;
+digitalWrite(r2,HIGH) ;
+delay(3000);
+
+//For back
+analogWrite(pwm,255) ;
+analogWrite(pwm1,255) ;
+digitalWrite(l1,LOW) ;
+digitalWrite(r1,HIGH) ;
+digitalWrite(l2,HIGH) ;
+digitalWrite(r2,LOW) ;
+delay(3000);
+
+
+//For left
+analogWrite(pwm,100);
+analogWrite(pwm1,255);
+digitalWrite(r1,HIGH) ;
+digitalWrite(l1,LOW) ;
+digitalWrite(l2,LOW);
+digitalWrite(r2,HIGH);
+delay(3000);
+
+
+//For Right
+analogWrite(pwm,255);
+analogWrite(pwm1,100);
+digitalWrite(r1,HIGH) ;
+digitalWrite(l1,LOW) ;
+
+
+digitalWrite(l2,LOW);
+digitalWrite(r2,HIGH);
+delay(3000);
+
+ }
